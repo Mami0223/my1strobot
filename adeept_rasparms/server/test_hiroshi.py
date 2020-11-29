@@ -14,7 +14,7 @@ for i in range(100):
     if xnowpos > 0:
         if ynowpos > 0:
             ras.servoAngInput(
-                [xnowpos-i*abs(xnowpos)/100, ynowpos-i*abs(ynowpos)/100, 0, 0])  # X,yを0に
+                [xnowpos-i*abs(xnowpos)/100, ynowpos-i*abs(ynowpos)/100, 0, 0])  # X,yをゆっくり0に。z,gは一気に0（g閉じる）
         else:
             ras.servoAngInput(
                 [xnowpos-i*abs(xnowpos)/100, ynowpos+i*abs(ynowpos)/100, 0, 0])
