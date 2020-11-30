@@ -11,20 +11,8 @@ znowpos = planlist[0][2]
 gnowpos = planlist[0][3]
 
 for i in range(100):
-    if xnowpos > 0:
-        if ynowpos > 0:
-            ras.servoAngInput(
-                [xnowpos-i*abs(xnowpos)/100, ynowpos-i*abs(ynowpos)/100, 0, 0])  # X,yをゆっくり0に。z,gは一気に0（g閉じる）
-        else:
-            ras.servoAngInput(
-                [xnowpos-i*abs(xnowpos)/100, ynowpos+i*abs(ynowpos)/100, 0, 0])
-    else:
-        if ynowpos > 0:
-            ras.servoAngInput(
-                [xnowpos+i*abs(xnowpos)/100, ynowpos-i*abs(ynowpos)/100, 0, 0])
-        else:
-            ras.servoAngInput(
-                [xnowpos+i*abs(xnowpos)/100, ynowpos+i*abs(ynowpos)/100, 0, 0])
+    ras.servoAngInput(
+        [xnowpos-i*xnowpos/100, ynowpos-i*ynowpos/100, znowpos-i*znowpos/100, gnowpos-i*gnowpos/100])  # x,y,zをゆっくり0に.gは一気に閉じる.
     time.sleep(0.01)
 
 
